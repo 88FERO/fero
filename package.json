@@ -1,0 +1,54 @@
+{
+  "name": "fero",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": ".",
+  "dependencies": {
+    "ant-design-pro": "^2.3.2",
+    "antd": "^3.26.13",
+    "axios": "^0.19.2",
+    "babel-plugin-import": "^1.13.0",
+    "bignumber.js": "^9.0.0",
+    "copy-text-to-clipboard": "^2.1.0",
+    "customize-cra": "^0.5.0",
+    "identicon.js": "^2.3.3",
+    "less": "^3.11.1",
+    "less-loader": "^5.0.0",
+    "popup-js-sdk": "0.0.7",
+    "qrcode": "^1.4.4",
+    "react": "^16.13.1",
+    "react-app-rewired": "^2.1.5",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.1.1",
+    "sero-pp": "^1.0.4",
+    "serojs": "^0.0.2"
+  },
+  "scripts": {
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "config-overrides.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "author": "",
+  "license": "ISC"
+}

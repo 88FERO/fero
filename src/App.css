@@ -1,0 +1,168 @@
+
+span{
+    /*font-size: 10px;*/
+    /*color: #fff !important;*/
+    /*font-weight: 500;*/
+}
+
+.ant-statistic-content span{
+    color: #fff !important;
+    font-weight: 500;
+}
+
+
+.antd-pro-charts-water-wave-text span{
+    color: #fff !important;
+    font-weight: 500;
+}
+
+li span{
+    color: #fff !important;
+    font-weight: 500;
+}
+
+.antd-pro-charts-water-wave-text h4{
+    color: #fff !important;
+    font-weight: 500;
+}
+
+.pie-stat span{
+    color: #fff !important;
+}
+
+.footer-n{
+    text-align: center;
+}
+
+.footer-n span{
+    color: #fff !important;
+    font-weight: 800;
+}
+
+td span{
+    color: #fff !important;
+    font-weight: 500;
+}
+
+.pie-sub-title{
+    color: #fff !important;
+}
+.ant-statistic-title{
+    color: #fff !important;
+}
+
+.spanx{
+    /*font-size: 10px;*/
+    color: #fff;
+    font-weight: 500;
+}
+
+.app-p-break {
+    width: 45%;
+    font-size: 0.6em;
+    word-break: normal;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 999;
+}
+
+.header h1 {
+    display: inline-block;
+    color: #fff;
+    margin-left: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    font-family: Avenir, Helvetica Neue, Arial, Helvetica, sans-serif;
+    vertical-align: middle;
+}
+
+.logo img {
+    width: 130px;
+    height: 50px;
+    float: left;
+    margin-top: 8px;
+    vertical-align: middle;
+}
+
+.change-locale {
+    display: inline-block;
+    float: right;
+}
+
+/** ========**/
+
+.App{
+    background-color: #12236b;
+}
+
+.header-n {
+    width: 100%;
+    background-image:url(head.jpeg);
+}
+
+.content-n{
+    position: relative;
+    top: -30px;
+}
+
+.account-n {
+    padding: 0 15px 0;
+
+}
+
+.account-nr {
+    /*height: 100px;*/
+    border-radius: 15px;
+    padding: 15px 10px;
+    background: #6494fa;
+}
+
+.contract-n{
+    border-radius: 15px;
+    background-color: #12236b;
+    padding: 5px 15px;
+}
+
+.contract-dn{
+    padding: 5px;
+    border-radius: 15px;
+    box-shadow:inset 0px 0px 5px 1px #fff,
+    inset 0px -15px 15px -15px #fff;
+}
+
+.contract-tn{
+    padding: 0 10px;
+    margin-top: 15px;
+}
+
+.contract-detail-n{
+    padding: 15px 30px;
+}
+
+.ant-descriptions-item-colon::after{
+    color: #fff;
+}
+
+
+.ant-descriptions-item-content small{
+    white-space: normal;
+    word-break: break-all;
+}
+
+.ant-modal-header {
+    background: #6494fa !important;
+}
+
+.ant-modal-content {
+    background-color: #6494fa !important;
+}
+
+.ant-modal-confirm-body > .anticon + .ant-modal-confirm-title + .ant-modal-confirm-content {
+     margin-left: 0px !important;
+}
