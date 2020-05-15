@@ -648,7 +648,9 @@ class ContentPage extends Component {
             returnPercent = (a * 100 / parseFloat(b)).toFixed(2);
         }
 
-        let showCountDown = new Date(staticTimestamp * 1000).getUTCDate() === parseInt(new Date().getUTCDate());
+        // let showCountDown = new Date(staticTimestamp * 1000).getUTCDate() === parseInt(new Date().getUTCDate());
+
+        let showCountDown = Math.ceil((staticTimestamp * 1000)/(600*1000)) === nextShareTime()/(600*1000);
 
         return (
             <div className="App" style={{marginTop: '0px'}}>
@@ -971,15 +973,19 @@ function convertUTCDate(dateTimestamp) {
 
 function nextShareTime() {
     let d = new Date();
-    d.setTime(d.getTime() + 24 * 60 * 60 * 1000);
-    let year = d.getUTCFullYear();
-    let month = d.getUTCMonth();
-    let day = d.getUTCDate();
+    // d.setTime(d.getTime() + 24 * 60 * 60 * 1000);
+    // let year = d.getUTCFullYear();
+    // let month = d.getUTCMonth();
+    // let day = d.getUTCDate();
+    //
+    // d = new Date(year, month, day, 0, 0, 0);
+    //
+    // let tz = new Date().getTimezoneOffset() / 60;
+    // return d.getTime() + (-tz) * 60 * 60 * 1000;
 
-    d = new Date(year, month, day, 0, 0, 0);
-
-    let tz = new Date().getTimezoneOffset() / 60;
-    return d.getTime() + (-tz) * 60 * 60 * 1000;
+    let time = d.getTime() + 600 * 1000;
+    time = time - time % (600 * 1000);
+    return time;
 }
 
 function appendZero(i) {
