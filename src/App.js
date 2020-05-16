@@ -322,7 +322,7 @@ class ContentPage extends Component {
                 profitLevel: parseInt(new BigNumber("0").toString(10)),
                 value: new BigNumber("0").dividedBy(decimal).toFixed(6),
                 star: parseInt(new BigNumber("0").toString(10)),
-                isKing: false,
+                isVip: false,
             }
             if (res !== "0x0") {
                 if (res) {
@@ -338,7 +338,7 @@ class ContentPage extends Component {
                         profitLevel: parseInt(new BigNumber(data[7]).toString(10)),
                         value: new BigNumber(data[8]).dividedBy(decimal).toFixed(6),
                         star: parseInt(new BigNumber(data[9]).toString(10)),
-                        isKing: data[10],
+                        isVip: data[10],
                     }
                 }
 
@@ -678,9 +678,16 @@ class ContentPage extends Component {
                                             <span
                                                 style={{color: '#fff'}}>{accountName ? accountName.slice(0, 10) + "..." + accountName.slice(-10) : ""}</span>
                                         }
-                                        description={<Rate count={4}
-                                                           value={this.state.ct_details.star ? this.state.ct_details.star : 0}
-                                                           disabled/>}
+                                        description={
+                                            this.state.ct_details.isVip ?
+                                                <Rate count={5}
+                                                      value={5}
+                                                      disabled/>
+                                                :
+                                                <Rate count={4}
+                                                      value={this.state.ct_details.star ? this.state.ct_details.star : 0}
+                                                      disabled/>
+                                        }
                                     />
                                 </Col>
                                 <Col span={8} style={{textAlign: 'right'}}>
@@ -783,7 +790,7 @@ class ContentPage extends Component {
                                     </Row>
                                 </div>
                                 {
-                                    showChart &&  <Divider dashed={true}/>
+                                    showChart && <Divider dashed={true}/>
                                 }
 
                                 <div>{
