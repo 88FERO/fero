@@ -36,12 +36,11 @@ import Contract from "./component/contract"
 // import popup from 'popup-js-sdk'
 import seropp from 'sero-pp'
 
-import Head from './head.jpeg'
+import Head from './head.png'
 
 let ct = new Contract();
 let Lang = new Language();
 const {Header, Content, Footer} = Layout;
-
 
 
 let contract = serojs.callContract(ct.abi, ct.address);
@@ -593,9 +592,9 @@ class ContentPage extends Component {
         Modal.info({
             title: <span style={{color: "#f3ba44", fontWeight: "600"}}>{Lang[that.state.lang].project.rule}</span>,
             okText: "OK",
-            icon:"",
+            icon: "",
             content: <div>
-                <span style={{'whiteSpace':'pre-wrap', color: "#FFFFFF"}}>{Lang[that.state.lang].toast.rule}</span>
+                <span style={{'whiteSpace': 'pre-wrap', color: "#FFFFFF"}}>{Lang[that.state.lang].toast.rule}</span>
                 <br/>
             </div>
         })
@@ -650,7 +649,7 @@ class ContentPage extends Component {
 
         // let showCountDown = new Date(staticTimestamp * 1000).getUTCDate() === parseInt(new Date().getUTCDate());
 
-        let showCountDown = Math.ceil((staticTimestamp * 1000)/(600*1000)) === nextShareTime()/(600*1000);
+        let showCountDown = Math.ceil((staticTimestamp * 1000) / (600 * 1000)) === nextShareTime() / (600 * 1000);
 
         return (
             <div className="App" style={{marginTop: '0px'}}>
@@ -666,19 +665,29 @@ class ContentPage extends Component {
                     }} onClick={this.showRules.bind(this)}>{Lang[this.state.lang].project.rule}</span>
                 </div>
                 <div className="content-n">
+
                     <div className="account-n">
-                        <div style={{
-                            fontSize: '14px',
-                            margin: "5px",
-                            color: '#fff'
-                        }}>{Lang[this.state.lang].account.title.utxo}</div>
+                        <div className="trapezoid" style={{textAlign: 'center'}}>
+                            <div style={{float: 'left', paddingLeft: '10px'}}><img src={require("./images_li_01.png")}
+                                                                                   width={'20px'} height={'20px'}/>
+                            </div>
+                            <div style={{
+                                float: 'left',
+                                fontSize: '14px',
+                                margin: "5px",
+                                paddingLeft: '10px'
+                                // color: '#fff'
+                            }}>{Lang[this.state.lang].account.title.utxo}</div>
+                        </div>
+
                         <div className={"account-nr"}>
                             <Row>
                                 <Col span={12}>
 
                                     <List.Item.Meta
                                         title={
-                                            <span style={{color:'#fff'}}>{accountName ? accountName.slice(0, 10) + "..." + accountName.slice(-10) : ""}</span>
+                                            <span
+                                                style={{color: '#fff'}}>{accountName ? accountName.slice(0, 10) + "..." + accountName.slice(-10) : ""}</span>
                                         }
                                         description={<Rate count={4}
                                                            value={this.state.ct_details.star ? this.state.ct_details.star : 0}
@@ -706,119 +715,147 @@ class ContentPage extends Component {
                     </div>
                     <div className={"contract-tn"}>
                         <div className={"contract-dn"}>
+                            <div className="trapezoid" style={{textAlign: 'center'}}>
+                                <div style={{float: 'left', paddingLeft: '10px'}}><img
+                                    src={require("./images_li_01.png")} width={'20px'} height={'20px'}/></div>
+                                <div style={{
+                                    float: 'left',
+                                    fontSize: '14px',
+                                    margin: "5px",
+                                    paddingLeft: '10px'
+                                    // color: '#fff'
+                                }}>{Lang[this.state.lang].account.title.contract}</div>
+                            </div>
                             <div className="contract-n">
-                                <h2 style={{
-                                    textAlign: 'center',
-                                    fontSize: '16px',
-                                    color: '#fff',
-                                    marginTop: '10px'
-                                }}>{Lang[this.state.lang].account.title.contract}</h2>
-                                <Divider/>
-                                <div>
-                                    <Row>
-                                        <Col span={18}><span
-                                            className={"spanx"}>{Lang[this.state.lang].account.title.estimatedTotal}:{new BigNumber(this.state.ct_details.amount ? this.state.ct_details.amount : 0).multipliedBy(this.state.ct_details.profitLevel ? this.state.ct_details.profitLevel : 0).toFixed(2)}</span></Col>
-                                        <Col span={6} style={{textAlign: 'center'}}>
-                                            {/*<Button size={"small"}*/}
-                                            {/*        type={"primary"}><span>{Lang[this.state.lang].account.button.invest}</span></Button>*/}
-                                            <Button style={{float: "left"}}
-                                                    type={"primary"} onClick={() => {
-                                                this.setState({showInvest: true})
-                                            }}>{Lang[this.state.lang].account.button.invest}</Button>
-                                        </Col>
-                                    </Row>
+
+                                <div style={{textAlign: 'center'}}>
+                                    <p/>
+                                    <div>
+                                        <span
+                                            className={"spanx"}>{Lang[this.state.lang].account.title.estimatedTotal}:{new BigNumber(this.state.ct_details.amount ? this.state.ct_details.amount : 0).multipliedBy(this.state.ct_details.profitLevel ? this.state.ct_details.profitLevel : 0).toFixed(2)}</span>
+                                    </div>
+                                    <p/>
+                                    <div style={{textAlign: 'center'}}>
+                                        <Button type={"primary"} onClick={() => {
+                                            this.setState({showInvest: true})
+                                        }}>{Lang[this.state.lang].account.button.invest}</Button>
+                                    </div>
+
+                                </div>
+
+                                <div style={{textAlign: 'center'}}>
                                     <p/>
                                     <Row>
-                                        <Col span={18}><span
-                                            className={"spanx"}>{Lang[this.state.lang].account.title.staticIncome} {this.state.ct_details.dayProfit}</span></Col>
-                                        <Col span={6} style={{textAlign: 'center'}}>
-                                            {
-                                                showCountDown ?
-                                                    <Countdown style={{marginTop: 14}} title="" format="HH:mm:ss"
-                                                               value={parseFloat(countDown)} onFinish={() => {
-                                                        this.getDetail()
-                                                    }}/> : <Button style={{marginTop: 16}} type="primary"
-                                                                   disabled={showCountDown} onClick={() => {
-                                                        this.shareProfit()
-                                                    }}>{Lang[this.state.lang].account.button.trigger}</Button>
-                                            }
+                                        <Col span={12}>
+                                            <div><span
+                                                className={"spanx"}>{Lang[this.state.lang].account.title.staticIncome} </span>
+                                            </div>
+                                            <div>
+                                                <span className={"spanx"}>
+                                                    {this.state.ct_details.dayProfit}
+                                                </span>
+                                            </div>
+                                            <div>
+                                                {
+                                                    showCountDown ?
+                                                        <Countdown style={{marginTop: 14}} title="" format="HH:mm:ss"
+                                                                   value={parseFloat(countDown)} onFinish={() => {
+                                                            this.getDetail()
+                                                        }}/> : <Button style={{marginTop: 16}} type="primary"
+                                                                       disabled={showCountDown} onClick={() => {
+                                                            this.shareProfit()
+                                                        }}>{Lang[this.state.lang].account.button.trigger}</Button>
+                                                }
+                                            </div>
                                         </Col>
-                                    </Row>
-                                    <p/>
-                                    <Row>
-                                        <Col span={18}><span
-                                            className={"spanx"}>{Lang[this.state.lang].account.title.withdraw}:{new BigNumber(this.state.ct_details.value ? this.state.ct_details.value : 0).toFixed(2)}</span></Col>
-                                        <Col span={6} style={{textAlign: 'center'}}>
-                                            <Button style={{marginTop: 16, float: "left"}}
-                                                    disabled={new BigNumber(this.state.ct_details.value ? this.state.ct_details.value : 0).comparedTo(0) < 1}
-                                                    type="primary" onClick={() => {
-                                                this.withdraw()
-                                            }}>{Lang[this.state.lang].account.button.withdraw}</Button>
+
+                                        <Col span={12}>
+                                            <div>
+                                                <span
+                                                    className={"spanx"}>{Lang[this.state.lang].account.title.withdraw}
+                                                    </span>
+                                            </div>
+                                            <div>
+                                                 <span className={"spanx"}>
+                                                     {new BigNumber(this.state.ct_details.value ?
+                                                         this.state.ct_details.value : 0).toFixed(2)}
+                                                 </span>
+
+                                            </div>
+                                            <div>
+                                                <Button style={{marginTop: 16}}
+                                                        disabled={new BigNumber(this.state.ct_details.value ? this.state.ct_details.value : 0).comparedTo(0) < 1}
+                                                        type="primary" onClick={() => {
+                                                    this.withdraw()
+                                                }}>{Lang[this.state.lang].account.button.withdraw}</Button>
+                                            </div>
+
                                         </Col>
                                     </Row>
                                 </div>
-                                <div>
-                                    {
-                                        showChart ?
-                                            <Row style={{textAlign: 'center'}}>
-                                                <Col span={24} style={{textAlign: 'center'}}>
-                                                    <div>
-                                                        {returnPercent > 0 ? <WaterWave height={234}
-                                                                                        title={Lang[this.state.lang].account.title.totalReturn}
-                                                                                        percent={returnPercent}/> :
-                                                            <WaterWave height={234}
-                                                                       title={Lang[this.state.lang].account.title.totalReturn}
-                                                                       percent={0}/>}
-                                                    </div>
-                                                </Col>
-                                                <Col span={24} style={{textAlign: 'left'}}>
-                                                    <Pie
-                                                        hasLegend
-                                                        animate
-                                                        title={Lang[this.state.lang].account.title.totalReturn}
-                                                        subTitle={Lang[this.state.lang].account.title.totalReturn}
-                                                        total={() => (
-                                                            <span
-                                                                dangerouslySetInnerHTML={{
-                                                                    __html: salesPieData.reduce((pre, now) => now.y + pre, 0),
-                                                                }}
-                                                            />
-                                                        )}
-                                                        data={salesPieData}
-                                                        valueFormat={val => <span
-                                                            dangerouslySetInnerHTML={{__html: val}}/>}
-                                                        height={248}
+                                {
+                                    showChart &&  <Divider dashed={true}/>
+                                }
+
+                                <div>{
+                                    showChart && <Row>
+                                        <Col span={12}>
+                                            <Pie
+                                                hasLegend
+                                                // animate
+                                                title={Lang[this.state.lang].account.title.totalReturn}
+                                                // subTitle={Lang[this.state.lang].account.title.totalReturn}
+                                                total={() => (
+                                                    <span
+                                                        dangerouslySetInnerHTML={{
+                                                            __html: salesPieData.reduce((pre, now) => now.y + pre, 0),
+                                                        }}
                                                     />
-                                                </Col>
-                                            </Row> : ""
-                                    }
+                                                )}
+                                                data={salesPieData}
+                                                valueFormat={val => <span
+                                                    dangerouslySetInnerHTML={{__html: val}}/>}
+                                                height={180}
+                                            />
+                                        </Col>
+                                        <Col span={12}>
+                                            {returnPercent > 0 ? <WaterWave height={160}
+                                                    // title={Lang[this.state.lang].account.title.totalReturn}
+                                                                            percent={returnPercent}/> :
+                                                <WaterWave height={160}
+                                                    // title={Lang[this.state.lang].account.title.totalReturn}
+                                                           percent={0}/>}
+                                        </Col>
+                                    </Row>
+                                }
                                 </div>
                                 <Divider dashed={true}/>
-                                <Row style={{textAlign: 'center'}}>
-                                    <Col span={12}>
-                                        <Statistic title={Lang[this.state.lang].account.title.totalReturnDay}
-                                                   value={totalReturnDay} precision={2}/>
-                                    </Col>
-                                    <Col span={12}>
-                                        <Statistic title={Lang[this.state.lang].account.title.dayIncome}
-                                                   value={this.state.ct_details.dayProfit && parseFloat(totalReturnDay) > 0 ? new BigNumber(this.state.ct_details.dayProfit).multipliedBy(100).dividedBy(totalReturnDay).toFixed(2) : "0"}
-                                                   suffix={"%"}/>
-                                    </Col>
+                                <div style={{textAlign: 'center'}}>
+                                    <Row>
+                                        <Col span={12}>
+                                            <Statistic title={Lang[this.state.lang].account.title.totalReturnDay}
+                                                       value={totalReturnDay} precision={2}/>
+                                        </Col>
+                                        <Col span={12}>
+                                            <Statistic title={Lang[this.state.lang].account.title.dayIncome}
+                                                       value={this.state.ct_details.dayProfit && parseFloat(totalReturnDay) > 0 ? new BigNumber(this.state.ct_details.dayProfit).multipliedBy(100).dividedBy(totalReturnDay).toFixed(2) : "0"}
+                                                       suffix={"%"}/>
+                                        </Col>
+                                    </Row>
 
-                                </Row>
-                                <Row style={{textAlign: 'center'}}>
-                                    <p/>
-                                    <Col span={12}>
-                                        <Statistic title={Lang[this.state.lang].account.title.areaTotal}
-                                                   value={this.state.ct_details.largeAreaTotal} precision={2}/>
-                                    </Col>
-                                    <Col span={12}>
-                                        <Statistic title={Lang[this.state.lang].account.title.areaOtherTotal}
-                                                   value={new BigNumber(this.state.ct_details.achievement).minus(new BigNumber(this.state.ct_details.largeAreaTotal)).toFixed(2)}
-                                                   precision={2}/>
-                                    </Col>
-                                </Row>
-
+                                    <Row>
+                                        <p/>
+                                        <Col span={12}>
+                                            <Statistic title={Lang[this.state.lang].account.title.areaTotal}
+                                                       value={this.state.ct_details.largeAreaTotal} precision={2}/>
+                                        </Col>
+                                        <Col span={12}>
+                                            <Statistic title={Lang[this.state.lang].account.title.areaOtherTotal}
+                                                       value={new BigNumber(this.state.ct_details.achievement).minus(new BigNumber(this.state.ct_details.largeAreaTotal)).toFixed(2)}
+                                                       precision={2}/>
+                                        </Col>
+                                    </Row>
+                                </div>
                             </div>
                         </div>
                     </div>

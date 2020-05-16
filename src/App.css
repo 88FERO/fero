@@ -98,17 +98,17 @@ td span{
 /** ========**/
 
 .App{
-    background-color: #12236b;
+    background-color: #444444;
 }
 
 .header-n {
     width: 100%;
-    background-image:url(head.jpeg);
+    background-image:url(head.png);
 }
 
 .content-n{
     position: relative;
-    top: -30px;
+    top: 3px;
 }
 
 .account-n {
@@ -118,22 +118,22 @@ td span{
 
 .account-nr {
     /*height: 100px;*/
-    border-radius: 15px;
+    /*border-radius: 15px;*/
     padding: 15px 10px;
-    background: #6494fa;
+    background: #212121;
 }
 
 .contract-n{
-    border-radius: 15px;
-    background-color: #12236b;
+    background-color: #212121;
     padding: 5px 15px;
+    border-radius: 12px;
 }
 
 .contract-dn{
     padding: 5px;
-    border-radius: 15px;
-    box-shadow:inset 0px 0px 5px 1px #fff,
-    inset 0px -15px 15px -15px #fff;
+
+    /*box-shadow:inset 0px 0px 5px 1px #fff,*/
+    /*inset 0px -15px 15px -15px #fff;*/
 }
 
 .contract-tn{
@@ -165,4 +165,26 @@ td span{
 
 .ant-modal-confirm-body > .anticon + .ant-modal-confirm-title + .ant-modal-confirm-content {
      margin-left: 0px !important;
+}
+
+.trapezoid {
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom: 35px solid #212121;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    width: 170px;
+    float: none;
+    font-weight: bold;
+    font-size: 20px;
+    color: #ee1231;
+}
+
+.ant-btn-primary {
+    color: #fff;
+    background-color: #ee1130 !important;
+    border-color: #ee1130 !important;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
+    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
 }
