@@ -654,7 +654,9 @@ class ContentPage extends Component {
         return (
             <div className="App" style={{marginTop: '0px'}}>
                 <div className="content-n">
-
+                    <div className="header-n">
+                        <img src={Head} width={"100%"}/>
+                    </div>
                     <div className="account-n">
                         <div className="trapezoid" style={{textAlign: 'center'}}>
                             <div style={{float: 'left', paddingLeft: '10px'}}><img src={require("./images_li_01.png")}

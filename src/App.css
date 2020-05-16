@@ -156,11 +156,11 @@ td span{
 }
 
 .ant-modal-header {
-    background: #6494fa !important;
+    background: #e0e0e0 !important;
 }
 
 .ant-modal-content {
-    background-color: #6494fa !important;
+    background-color: #f7f7f7 !important;
 }
 
 .ant-modal-confirm-body > .anticon + .ant-modal-confirm-title + .ant-modal-confirm-content {
