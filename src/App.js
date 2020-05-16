@@ -653,17 +653,6 @@ class ContentPage extends Component {
 
         return (
             <div className="App" style={{marginTop: '0px'}}>
-                <div className="header-n">
-                    <img src={Head} width={"100%"}/>
-                    <span style={{
-                        float: "left",
-                        padding: "15px",
-                        position: "relative",
-                        top: "-222px",
-                        color: "#f3ba44",
-                        fontWeight: "600"
-                    }} onClick={this.showRules.bind(this)}>{Lang[this.state.lang].project.rule}</span>
-                </div>
                 <div className="content-n">
 
                     <div className="account-n">
@@ -887,9 +876,6 @@ class ContentPage extends Component {
                             </Descriptions>
                         </Skeleton>
                     </div>
-                </div>
-                <div className="footer-n">
-                    <span>风险投资 谨慎参与</span>
                 </div>
 
                 <SelectAccount visible={showAccountSelect} selectAccount={this.selectAccount}
