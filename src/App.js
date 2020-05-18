@@ -615,28 +615,50 @@ class ContentPage extends Component {
         // let currentIncome = that.state.ct_details.detailsOfIncome?new BigNumber(that.state.ct_details.detailsOfIncome[4]).dividedBy(decimal).toFixed(2):0;
         let staticTimestamp = that.state.ct_details.detailsOfIncome ? that.state.ct_details.detailsOfIncome[5] : 0;
 
+        // const salesPieData = [
+        //     {
+        //         x: Lang[this.state.lang].account.title.staticReward,
+        //         y: parseFloat(staticReward),
+        //     },
+        //     {
+        //         x: Lang[this.state.lang].account.title.recommendReward,
+        //         y: parseFloat(recommendReward),
+        //     },
+        //     {
+        //         x: Lang[this.state.lang].account.title.nobilityReward,
+        //         y: parseFloat(nobilityReward),
+        //     },
+        //     {
+        //         x: Lang[this.state.lang].account.title.vipReward,
+        //         y: parseFloat(vipReward),
+        //     },
+        //
+        // ];
+        //
+        // const showChart = parseFloat(staticReward) > 0 || parseFloat(recommendReward) > 0 || parseFloat(nobilityReward) > 0 || parseFloat(vipReward) > 0
+
+
         const salesPieData = [
             {
                 x: Lang[this.state.lang].account.title.staticReward,
-                y: parseFloat(staticReward),
+                y: 30,
             },
             {
                 x: Lang[this.state.lang].account.title.recommendReward,
-                y: parseFloat(recommendReward),
+                y: 60,
             },
             {
                 x: Lang[this.state.lang].account.title.nobilityReward,
-                y: parseFloat(nobilityReward),
+                y: 50,
             },
             {
                 x: Lang[this.state.lang].account.title.vipReward,
-                y: parseFloat(vipReward),
+                y: 20,
             },
 
         ];
 
-        const showChart = parseFloat(staticReward) > 0 || parseFloat(recommendReward) > 0 || parseFloat(nobilityReward) > 0 || parseFloat(vipReward) > 0
-
+        const showChart = true;
         const countDown = nextShareTime();
         let totalReturnDay = this.state.ct_balanceOfSero ? new BigNumber(this.state.ct_balanceOfSero).dividedBy(30).toFixed(6) : "0";
         let returnPercent = 0;
@@ -798,31 +820,35 @@ class ContentPage extends Component {
                                 <div>{
                                     showChart && <Row>
                                         <Col span={12}>
-                                            <Pie
-                                                hasLegend
-                                                // animate
-                                                title={Lang[this.state.lang].account.title.totalReturn}
-                                                // subTitle={Lang[this.state.lang].account.title.totalReturn}
-                                                total={() => (
-                                                    <span
-                                                        dangerouslySetInnerHTML={{
-                                                            __html: salesPieData.reduce((pre, now) => now.y + pre, 0),
-                                                        }}
-                                                    />
-                                                )}
-                                                data={salesPieData}
-                                                valueFormat={val => <span
-                                                    dangerouslySetInnerHTML={{__html: val}}/>}
-                                                height={180}
-                                            />
+                                            <div style={{padding:'5px'}}>
+                                                <Pie
+                                                    hasLegend
+                                                    // animate
+                                                    title={Lang[this.state.lang].account.title.totalReturn}
+                                                    // subTitle={Lang[this.state.lang].account.title.totalReturn}
+                                                    total={() => (
+                                                        <span
+                                                            dangerouslySetInnerHTML={{
+                                                                __html: salesPieData.reduce((pre, now) => now.y + pre, 0),
+                                                            }}
+                                                        />
+                                                    )}
+                                                    data={salesPieData}
+                                                    valueFormat={val => <span
+                                                        dangerouslySetInnerHTML={{__html: val}}/>}
+                                                    height={180}
+                                                />
+                                            </div>
                                         </Col>
                                         <Col span={12}>
-                                            {returnPercent > 0 ? <WaterWave height={160}
-                                                    // title={Lang[this.state.lang].account.title.totalReturn}
-                                                                            percent={returnPercent}/> :
-                                                <WaterWave height={160}
-                                                    // title={Lang[this.state.lang].account.title.totalReturn}
-                                                           percent={0}/>}
+                                            <div style={{padding:'5px'}}>
+                                                {returnPercent > 0 ? <WaterWave height={180}
+                                                        // title={Lang[this.state.lang].account.title.totalReturn}
+                                                                                percent={returnPercent}/> :
+                                                    <WaterWave height={180}
+                                                        // title={Lang[this.state.lang].account.title.totalReturn}
+                                                               percent={0}/>}
+                                            </div>
                                         </Col>
                                     </Row>
                                 }
