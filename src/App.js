@@ -79,9 +79,9 @@ const InvestForm = Form.create({name: 'form_in_modal2'})(
                 if (times > 0) {
                     estimateLevel = times;
                 } else {
-                    if (parseFloat(that.state.amount) > 0 && parseFloat(that.state.amount) < 500) {
+                    if (parseFloat(that.state.amount) >= 100 && parseFloat(that.state.amount) < 1000) {
                         estimateLevel = 3
-                    } else if (parseFloat(that.state.amount) >= 500 && parseFloat(that.state.amount) < 5000) {
+                    } else if (parseFloat(that.state.amount) >= 1000 && parseFloat(that.state.amount) < 5000) {
                         estimateLevel = 4
                     } else if (parseFloat(that.state.amount) >= 5000) {
                         estimateLevel = 5
@@ -820,7 +820,7 @@ class ContentPage extends Component {
                                 <div>{
                                     showChart && <Row>
                                         <Col span={12}>
-                                            <div style={{padding:'5px'}}>
+                                            <div style={{padding: '5px'}}>
                                                 <Pie
                                                     hasLegend
                                                     // animate
@@ -841,7 +841,7 @@ class ContentPage extends Component {
                                             </div>
                                         </Col>
                                         <Col span={12}>
-                                            <div style={{padding:'5px'}}>
+                                            <div style={{padding: '5px'}}>
                                                 {returnPercent > 0 ? <WaterWave height={180}
                                                         // title={Lang[this.state.lang].account.title.totalReturn}
                                                                                 percent={returnPercent}/> :
