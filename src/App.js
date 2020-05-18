@@ -615,50 +615,50 @@ class ContentPage extends Component {
         // let currentIncome = that.state.ct_details.detailsOfIncome?new BigNumber(that.state.ct_details.detailsOfIncome[4]).dividedBy(decimal).toFixed(2):0;
         let staticTimestamp = that.state.ct_details.detailsOfIncome ? that.state.ct_details.detailsOfIncome[5] : 0;
 
-        // const salesPieData = [
-        //     {
-        //         x: Lang[this.state.lang].account.title.staticReward,
-        //         y: parseFloat(staticReward),
-        //     },
-        //     {
-        //         x: Lang[this.state.lang].account.title.recommendReward,
-        //         y: parseFloat(recommendReward),
-        //     },
-        //     {
-        //         x: Lang[this.state.lang].account.title.nobilityReward,
-        //         y: parseFloat(nobilityReward),
-        //     },
-        //     {
-        //         x: Lang[this.state.lang].account.title.vipReward,
-        //         y: parseFloat(vipReward),
-        //     },
-        //
-        // ];
-        //
-        // const showChart = parseFloat(staticReward) > 0 || parseFloat(recommendReward) > 0 || parseFloat(nobilityReward) > 0 || parseFloat(vipReward) > 0
-
-
         const salesPieData = [
             {
                 x: Lang[this.state.lang].account.title.staticReward,
-                y: 30,
+                y: parseFloat(staticReward),
             },
             {
                 x: Lang[this.state.lang].account.title.recommendReward,
-                y: 60,
+                y: parseFloat(recommendReward),
             },
             {
                 x: Lang[this.state.lang].account.title.nobilityReward,
-                y: 50,
+                y: parseFloat(nobilityReward),
             },
             {
                 x: Lang[this.state.lang].account.title.vipReward,
-                y: 20,
+                y: parseFloat(vipReward),
             },
 
         ];
 
-        const showChart = true;
+        const showChart = parseFloat(staticReward) > 0 || parseFloat(recommendReward) > 0 || parseFloat(nobilityReward) > 0 || parseFloat(vipReward) > 0
+
+
+        // const salesPieData = [
+        //     {
+        //         x: Lang[this.state.lang].account.title.staticReward,
+        //         y: 30,
+        //     },
+        //     {
+        //         x: Lang[this.state.lang].account.title.recommendReward,
+        //         y: 60,
+        //     },
+        //     {
+        //         x: Lang[this.state.lang].account.title.nobilityReward,
+        //         y: 50,
+        //     },
+        //     {
+        //         x: Lang[this.state.lang].account.title.vipReward,
+        //         y: 20,
+        //     },
+        //
+        // ];
+        //
+        // const showChart = true;
         const countDown = nextShareTime();
         let totalReturnDay = this.state.ct_balanceOfSero ? new BigNumber(this.state.ct_balanceOfSero).dividedBy(30).toFixed(6) : "0";
         let returnPercent = 0;
