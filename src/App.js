@@ -636,29 +636,7 @@ class ContentPage extends Component {
         ];
 
         const showChart = parseFloat(staticReward) > 0 || parseFloat(recommendReward) > 0 || parseFloat(nobilityReward) > 0 || parseFloat(vipReward) > 0
-
-
-        // const salesPieData = [
-        //     {
-        //         x: Lang[this.state.lang].account.title.staticReward,
-        //         y: 30,
-        //     },
-        //     {
-        //         x: Lang[this.state.lang].account.title.recommendReward,
-        //         y: 60,
-        //     },
-        //     {
-        //         x: Lang[this.state.lang].account.title.nobilityReward,
-        //         y: 50,
-        //     },
-        //     {
-        //         x: Lang[this.state.lang].account.title.vipReward,
-        //         y: 20,
-        //     },
-        //
-        // ];
-        //
-        // const showChart = true;
+        
         const countDown = nextShareTime();
         let totalReturnDay = this.state.ct_balanceOfSero ? new BigNumber(this.state.ct_balanceOfSero).dividedBy(30).toFixed(6) : "0";
         let returnPercent = 0;
@@ -669,9 +647,8 @@ class ContentPage extends Component {
             returnPercent = (a * 100 / parseFloat(b)).toFixed(2);
         }
 
-        // let showCountDown = new Date(staticTimestamp * 1000).getUTCDate() === parseInt(new Date().getUTCDate());
+        let showCountDown = new Date(staticTimestamp * 1000).getUTCDate() === parseInt(new Date().getUTCDate());
 
-        let showCountDown = Math.ceil((staticTimestamp * 1000) / (600 * 1000)) === nextShareTime() / (600 * 1000);
 
         return (
             <div className="App" style={{marginTop: '0px'}}>
@@ -1031,19 +1008,15 @@ function convertUTCDate(dateTimestamp) {
 
 function nextShareTime() {
     let d = new Date();
-    // d.setTime(d.getTime() + 24 * 60 * 60 * 1000);
-    // let year = d.getUTCFullYear();
-    // let month = d.getUTCMonth();
-    // let day = d.getUTCDate();
-    //
-    // d = new Date(year, month, day, 0, 0, 0);
-    //
-    // let tz = new Date().getTimezoneOffset() / 60;
-    // return d.getTime() + (-tz) * 60 * 60 * 1000;
+    d.setTime(d.getTime() + 24 * 60 * 60 * 1000);
+    let year = d.getUTCFullYear();
+    let month = d.getUTCMonth();
+    let day = d.getUTCDate();
 
-    let time = d.getTime() + 600 * 1000;
-    time = time - time % (600 * 1000);
-    return time;
+    d = new Date(year, month, day, 0, 0, 0);
+
+    let tz = new Date().getTimezoneOffset() / 60;
+    return d.getTime() + (-tz) * 60 * 60 * 1000;
 }
 
 function appendZero(i) {
